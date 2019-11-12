@@ -3,26 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/estilos.css">
+
+
 </head>
 <body>
-    <h1>Alura Typer </h1>
-    <p class="sentence">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-        Temporibus enim maiores id doloremque fugit nam unde recusandae repellat. 
-        Maxime dolores consectetur doloremque tempora esse voluptates ex ipsa enim unde facilis?</p>
-    
-    <ul class="info-list">
-        <li> <span id="sentence-size"></span> words</li>
-        <li><span id="timer">10</span> seconds</li>        
-    </ul>
+    <div class="container">
+
+        <h1 class="center">Alura Typer </h1>
+        <p class="sentence center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Temporibus enim maiores id doloremque fugit nam unde recusandae repellat. 
+            Maxime dolores consectetur doloremque tempora esse voluptates ex ipsa enim unde facilis?</p>
+        
+        <ul class="info-list center">
+            <li>
+                <i class="small material-icons icons">description</i> 
+                <span id="sentence-size"></span> words
+            </li>
+            <li>
+                <i class="small material-icons icons">query_builder</i>
+                <span id="timer">10</span> seconds
+            </li>        
+        </ul>
 
 
-    <textarea class="type-field" id="" cols="30" rows="10"></textarea>
-    <button id="btn-restart">Restart Game</button>
+        <textarea class="type-field" id="" cols="30" rows="30"></textarea>
 
-    <ul>
-        <li><span id="char-counter"></span> characters</li>
-        <li><span id="word-counter"></span> words</li>
-    </ul>
+        <div>
+            <a id="btn-restart" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">restore</i></a>
+        </div>
+
+
+
+        <ul class="center">
+            <li><span id="char-counter">0</span> characters</li>
+            <li><span id="word-counter">0</span> words</li>
+        </ul>
+
+    </div>
 
     <script src='js/jquery.js'></script>
     <script src='js/main.js'></script>

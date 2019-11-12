@@ -1,0 +1,27 @@
+.sentence{
+    font-size: 20px;
+}
+
+.type-field{
+    font-size: 20px;
+    height: 150px; 
+    text-align: left;
+    border: 3px solid black;
+}
+
+.disabled-field{
+    background-color: lightgray;
+}
+
+.icons{
+    vertical-align: middle;
+}
+
+
+.green-field{
+    border: 3px solid green;
+}
+
+.red-field{
+    border: 3px solid red;
+}

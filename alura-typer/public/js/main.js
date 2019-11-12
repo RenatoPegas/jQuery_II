@@ -6,6 +6,7 @@ $(document).ready(() => {
    updateSize();
    countInit();
    chronometerInit();
+   avaliateField();
    $("#btn-restart").click(gameReset);
 
 })
@@ -48,6 +49,7 @@ function chronometerInit () {
          if(timer < 1){
             field.attr("disabled", true);                //desabilita campo quando contador chegar a 0
             clearInterval(interval);                     //finaliza o contador quando o timer chegar a 0
+            field.toggleClass("disabled-field");           //adiciona classe css no campo 
          }
          
       }, 1000);
@@ -56,14 +58,37 @@ function chronometerInit () {
 }
 
 
+function avaliateField(){
+
+   let sentence = $(".sentence").text();
+
+   field.on("input", () => {
+
+      let digit = field.val();
+      let compare = sentence.substr(0, digit.length);
+
+      if(digit == compare){
+         field.addClass("green-field");
+         field.removeClass("red-field");
+      }else{
+         field.addClass("red-field");
+         field.removeClass("green-field");
+      }
+
+   });
+}
+
 function gameReset() {
    
-      field.attr("disabled", false);
-      field.val("");
-      $("#word-counter").text("0");
-      $("#char-counter").text("0");
-      $("#timer").text(initialTime);     
-      chronometerInit();      
+      field.attr("disabled", false);                     //volta a habilitar o campo
+      field.val("");                                     //zera os caracterer do campo
+      $("#word-counter").text("0");                      //zera contador de palavras
+      $("#char-counter").text("0");                      //zera contador de caracteres
+      $("#timer").text(initialTime);                     //volta o temporizador
+      chronometerInit();                                 //reinicializa chronometro
+      field.toggleClass("disabled-field");                
+      field.removeClass("green-field");
+      field.removeClass("red-field");
    
 }
 
