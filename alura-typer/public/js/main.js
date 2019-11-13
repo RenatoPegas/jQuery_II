@@ -11,14 +11,12 @@ $(document).ready(() => {
 
 })
 
-
 function updateSize(){
    let sentence = $(".sentence").text();                    //frase esctita
    let wordSize = sentence.split(" ").length;               //conta as palavras pela separação de espaço e armazena na vairavel
    let sentenceSize = $("#sentence-size");                  //o tamanho de caracteres ns frase
    sentenceSize.text(wordSize);                             //contador de caracteres
 }
-
 
 function countInit(){
  
@@ -35,7 +33,6 @@ function countInit(){
 
 }
 
-
 function chronometerInit () {
 
    let timer = $("#timer").text();                       //variavel do contator
@@ -47,9 +44,10 @@ function chronometerInit () {
          timer--;
          $("#timer").text(timer); 
          if(timer < 1){
-            field.attr("disabled", true);                //desabilita campo quando contador chegar a 0
+           
             clearInterval(interval);                     //finaliza o contador quando o timer chegar a 0
-            field.toggleClass("disabled-field");           //adiciona classe css no campo 
+            endGame();
+            
          }
          
       }, 1000);
@@ -57,15 +55,20 @@ function chronometerInit () {
    });
 }
 
+function endGame(){
+   field.attr("disabled", true);                //desabilita campo quando contador chegar a 0s
+   field.toggleClass("disabled-field");           //adiciona classe css no campo 
+   scoreInsert();
+}
 
 function avaliateField(){
 
-   let sentence = $(".sentence").text();
+   let sentence = $(".sentence").text();                     //pega o texto da frase
 
-   field.on("input", () => {
+   field.on("input", () => {                                   //a cada input, vai fazer a função
 
-      let digit = field.val();
-      let compare = sentence.substr(0, digit.length);
+      let digit = field.val();                                 //variavel com o valor do campo digitado
+      let compare = sentence.substr(0, digit.length);          //compara a frase que tem no jogo com a digitada 
 
       if(digit == compare){
          field.addClass("green-field");
