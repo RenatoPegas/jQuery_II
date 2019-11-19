@@ -18,6 +18,12 @@ function updateSize(){
    sentenceSize.text(wordSize);                             //contador de caracteres
 }
 
+function updateTime(tempo){
+   initialTime = tempo;
+   $("#timer").text(tempo);
+   
+}
+
 function countInit(){
  
    field.on("input", () => {                             //on click event, do something
@@ -33,12 +39,11 @@ function countInit(){
 
 }
 
-function chronometerInit () {
-
-   let timer = $("#timer").text();                       //variavel do contator
+function chronometerInit (){
 
    field.one("focus", () => {                            //quando entrar no campo de digitação, começe a diminuir o tempo
 
+      let timer = $("#timer").text();                       //variavel do contator
       let interval = setInterval( () => {
          
          timer--;
@@ -63,10 +68,9 @@ function endGame(){
 
 function avaliateField(){
 
-   let sentence = $(".sentence").text();                     //pega o texto da frase
-
    field.on("input", () => {                                   //a cada input, vai fazer a função
 
+      let sentence = $(".sentence").text();                     //pega o texto da frase
       let digit = field.val();                                 //variavel com o valor do campo digitado
       let compare = sentence.substr(0, digit.length);          //compara a frase que tem no jogo com a digitada 
 
@@ -81,7 +85,7 @@ function avaliateField(){
    });
 }
 
-function gameReset() {
+function gameReset(){
    
       field.attr("disabled", false);                     //volta a habilitar o campo
       field.val("");                                     //zera os caracterer do campo

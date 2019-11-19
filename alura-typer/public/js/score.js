@@ -14,13 +14,13 @@ function scoreInsert(){
     scoreScroll();       
  }
 
- function scoreScroll(){
+ function scoreScroll(){                          // TIRAR DÚVIDAS COM O KAUÊ / CELSO
     
    let scorePosition = $(".score").offset().top;  //offset mostra a posição do placar]
    $('body').animate(
    {
 
-      scrollTop: scorePosition + 'px'
+      scrollTop: scorePosition + 'px'            // TIRAR DÚVIDAS COM O KAUÊ / CELSO
 
    }, 1000);
  }
